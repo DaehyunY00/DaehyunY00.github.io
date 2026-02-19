@@ -1,0 +1,14 @@
+[params]
+author = "Daehyun Yoo"
+description = "AI 논문 리뷰, 엔지니어링 실전 인사이트, 기술 분석 기록"
+mainSections = ["posts", "papers", "technology", "techblogs"]
+math = true
+mermaid = true
+siteImage = "/images/og-default.png"
+
+[params.seo]
+titleSeparator = " | "
+keywords = ["AI", "Engineering", "Paper Review", "Tech Insights", "DevOps"]
+
+[params.social]
+github = "https://github.com/DaehyunY00"

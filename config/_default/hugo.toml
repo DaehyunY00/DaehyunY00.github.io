@@ -1,0 +1,57 @@
+baseURL = "https://daehyuny00.github.io/"
+title = "DaehyunY00 Tech Notes"
+theme = "lab-light"
+defaultContentLanguage = "ko"
+defaultContentLanguageInSubdir = false
+enableRobotsTXT = true
+enableGitInfo = true
+timeZone = "Asia/Seoul"
+summaryLength = 180
+
+[pagination]
+pagerSize = 10
+
+[taxonomies]
+tag = "tags"
+category = "categories"
+
+[permalinks]
+posts = "/posts/:slugorfilename/"
+papers = "/papers/:slugorfilename/"
+technology = "/technology/:slugorfilename/"
+techblogs = "/techblogs/:slugorfilename/"
+
+[outputs]
+home = ["HTML", "RSS"]
+section = ["HTML", "RSS"]
+taxonomy = ["HTML", "RSS"]
+term = ["HTML", "RSS"]
+
+[markup]
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true
+[markup.highlight]
+codeFences = true
+guessSyntax = true
+lineNos = true
+lineNumbersInTable = false
+noClasses = true
+style = "github"
+
+[sitemap]
+changefreq = "weekly"
+filename = "sitemap.xml"
+priority = 0.5
+
+[languages]
+[languages.ko]
+languageName = "한국어"
+languageCode = "ko-KR"
+weight = 1
+title = "DaehyunY00 기술 블로그"
+[languages.en]
+languageName = "English"
+languageCode = "en-US"
+weight = 2
+title = "DaehyunY00 Tech Blog"
