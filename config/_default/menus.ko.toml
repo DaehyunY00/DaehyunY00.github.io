@@ -1,29 +1,24 @@
 [[main]]
-name = "홈"
-pageRef = "/"
-weight = 1
-
-[[main]]
-name = "Posts"
-pageRef = "/posts"
-weight = 2
-
-[[main]]
 name = "Papers"
 pageRef = "/papers"
-weight = 3
-
-[[main]]
-name = "Technology"
-pageRef = "/technology"
-weight = 4
+weight = 1
 
 [[main]]
 name = "Tech Blogs"
 pageRef = "/techblogs"
-weight = 5
+weight = 2
+
+[[main]]
+name = "Insights"
+pageRef = "/posts"
+weight = 3
+
+[[main]]
+name = "Archive"
+pageRef = "/archives"
+weight = 4
 
 [[main]]
 name = "About"
 pageRef = "/about"
-weight = 6
+weight = 5

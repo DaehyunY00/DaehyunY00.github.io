@@ -1,6 +1,6 @@
 baseURL = "https://daehyuny00.github.io/"
 title = "DaehyunY00 Tech Notes"
-theme = "lab-light"
+theme = "PaperMod"
 defaultContentLanguage = "ko"
 defaultContentLanguageInSubdir = false
 enableRobotsTXT = true
@@ -22,7 +22,7 @@ technology = "/technology/:slugorfilename/"
 techblogs = "/techblogs/:slugorfilename/"
 
 [outputs]
-home = ["HTML", "RSS"]
+home = ["HTML", "RSS", "JSON"]
 section = ["HTML", "RSS"]
 taxonomy = ["HTML", "RSS"]
 term = ["HTML", "RSS"]
@@ -36,8 +36,7 @@ codeFences = true
 guessSyntax = true
 lineNos = true
 lineNumbersInTable = false
-noClasses = true
-style = "github"
+noClasses = false
 
 [sitemap]
 changefreq = "weekly"

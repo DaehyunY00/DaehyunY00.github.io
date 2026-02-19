@@ -1,5 +1,5 @@
 +++
-title = "Posts"
+title = "Insights"
 description = "일반 기술 인사이트와 실전 운영 경험"
 +++
 

@@ -1,0 +1,40 @@
+{{- define "main" }}
+<article class="post-single techblog-single">
+  <header class="post-header">
+    {{- partial "breadcrumbs.html" . }}
+    <h1 class="post-title entry-hint-parent">{{ .Title }}</h1>
+    {{- with .Params.company }}
+    <div class="entry-badges">
+      <span class="company-badge">{{ . }}</span>
+    </div>
+    {{- end }}
+    {{- if .Description }}
+    <div class="post-description">{{ .Description }}</div>
+    {{- end }}
+    {{- if not (.Param "hideMeta") }}
+    <div class="post-meta">
+      {{- partial "post_meta.html" . -}}
+      {{- partial "translation_list.html" . -}}
+    </div>
+    {{- end }}
+  </header>
+
+  {{- with .Params.original_link }}
+  <div class="paper-link-row">
+    <a class="paper-link-btn code" href="{{ . }}" target="_blank" rel="noopener noreferrer">Read Original Post</a>
+  </div>
+  {{- end }}
+
+  {{- if (.Param "ShowToc") }}
+  {{- partial "toc.html" . }}
+  {{- end }}
+
+  {{- if .Content }}
+  <div class="post-content">
+    {{- if not (.Param "disableAnchoredHeadings") }}
+    {{- partial "anchored_headings.html" .Content -}}
+    {{- else }}{{ .Content }}{{ end }}
+  </div>
+  {{- end }}
+</article>
+{{- end }}

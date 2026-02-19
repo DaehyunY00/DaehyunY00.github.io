@@ -1,0 +1,123 @@
+.archive-hero {
+  padding: 1.2rem 0 0.6rem;
+}
+
+.archive-hero h1 {
+  letter-spacing: 0.02em;
+}
+
+.section-archives {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.section-archive-card {
+  border: 1px solid var(--border);
+  background: var(--entry);
+  border-radius: var(--radius);
+  padding: 1rem;
+}
+
+.section-archive-head h2 {
+  margin: 0;
+}
+
+.section-archive-head p {
+  margin: 0.3rem 0 0.8rem;
+  color: var(--secondary);
+  font-size: 0.92rem;
+}
+
+.section-archive-list {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.section-archive-list li {
+  margin: 0.45rem 0;
+}
+
+.section-archive-date {
+  color: var(--secondary);
+  font-size: 0.82rem;
+  margin-right: 0.45rem;
+}
+
+.archive-more {
+  display: inline-block;
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.entry-badges {
+  margin: 0 0 0.45rem;
+}
+
+.company-badge {
+  display: inline-block;
+  border: 1px solid rgba(103, 232, 249, 0.4);
+  background: rgba(34, 211, 238, 0.15);
+  color: #c9f9ff;
+  border-radius: 999px;
+  padding: 0.1rem 0.55rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+}
+
+.paper-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 0.9rem;
+}
+
+.paper-meta-item {
+  border: 1px solid var(--border);
+  background: var(--entry);
+  border-radius: var(--radius);
+  padding: 0.6rem 0.75rem;
+  font-size: 0.92rem;
+}
+
+.paper-meta-item span {
+  display: block;
+  color: var(--secondary);
+  font-size: 0.74rem;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+}
+
+.paper-link-row {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin: 0.6rem 0 1rem;
+}
+
+.paper-link-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.42rem 0.9rem;
+  font-size: 0.87rem;
+  font-weight: 700;
+  border: 1px solid transparent;
+}
+
+.paper-link-btn.arxiv {
+  background: #f54e42;
+  color: #fff;
+}
+
+.paper-link-btn.code {
+  background: #1f2937;
+  border-color: #374151;
+  color: #e5e7eb;
+}
+
+.paper-link-btn:hover {
+  opacity: 0.92;
+}

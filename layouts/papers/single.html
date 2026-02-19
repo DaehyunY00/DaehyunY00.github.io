@@ -1,0 +1,64 @@
+{{- define "main" }}
+<article class="post-single paper-single">
+  <header class="post-header">
+    {{- partial "breadcrumbs.html" . }}
+    <h1 class="post-title entry-hint-parent">{{ .Title }}</h1>
+    {{- if .Description }}
+    <div class="post-description">{{ .Description }}</div>
+    {{- end }}
+    {{- if not (.Param "hideMeta") }}
+    <div class="post-meta">
+      {{- partial "post_meta.html" . -}}
+      {{- partial "translation_list.html" . -}}
+    </div>
+    {{- end }}
+  </header>
+
+  <section class="paper-meta-grid">
+    {{- with .Params.paper_title }}
+    <div class="paper-meta-item"><span>Paper</span>{{ . }}</div>
+    {{- end }}
+    {{- with .Params.authors }}
+    <div class="paper-meta-item"><span>Authors</span>{{ delimit . ", " }}</div>
+    {{- end }}
+    {{- with .Params.venue }}
+    <div class="paper-meta-item"><span>Venue</span>{{ . }}</div>
+    {{- end }}
+    {{- with .Params.year }}
+    <div class="paper-meta-item"><span>Year</span>{{ . }}</div>
+    {{- end }}
+  </section>
+
+  {{- if or .Params.arxiv .Params.code }}
+  <div class="paper-link-row">
+    {{- with .Params.arxiv }}
+    <a class="paper-link-btn arxiv" href="{{ . }}" target="_blank" rel="noopener noreferrer">Open arXiv</a>
+    {{- end }}
+    {{- with .Params.code }}
+    <a class="paper-link-btn code" href="{{ . }}" target="_blank" rel="noopener noreferrer">View Code</a>
+    {{- end }}
+  </div>
+  {{- end }}
+
+  {{- if (.Param "ShowToc") }}
+  {{- partial "toc.html" . }}
+  {{- end }}
+
+  {{- if .Content }}
+  <div class="post-content">
+    {{- if not (.Param "disableAnchoredHeadings") }}
+    {{- partial "anchored_headings.html" .Content -}}
+    {{- else }}{{ .Content }}{{ end }}
+  </div>
+  {{- end }}
+
+  <footer class="post-footer">
+    {{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
+    <ul class="post-tags">
+      {{- range ($.GetTerms $tags) }}
+      <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+      {{- end }}
+    </ul>
+  </footer>
+</article>
+{{- end }}

@@ -1,14 +1,30 @@
 [params]
 author = "Daehyun Yoo"
 description = "AI 논문 리뷰, 엔지니어링 실전 인사이트, 기술 분석 기록"
-mainSections = ["posts", "papers", "technology", "techblogs"]
+keywords = ["AI", "Engineering", "Paper Review", "Tech Insights", "DevOps"]
+mainSections = ["papers", "techblogs", "posts"]
+defaultTheme = "dark"
+disableThemeToggle = false
+ShowShareButtons = false
+ShowReadingTime = true
+ShowBreadCrumbs = true
+ShowCodeCopyButtons = true
+ShowRssButtonInSectionTermList = true
+ShowToc = true
+TocOpen = true
+showSummary = true
 math = true
 mermaid = true
 siteImage = "/images/og-default.png"
+
+[params.homeInfoParams]
+Title = "AI Engineering Archive"
+Content = "논문 리뷰, 기업 기술 블로그 분석, 실전 인사이트를 축적하는 개인 아카이브"
 
 [params.seo]
 titleSeparator = " | "
 keywords = ["AI", "Engineering", "Paper Review", "Tech Insights", "DevOps"]
 
-[params.social]
-github = "https://github.com/DaehyunY00"
+[[params.socialIcons]]
+name = "github"
+url = "https://github.com/DaehyunY00"
