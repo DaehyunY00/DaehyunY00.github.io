@@ -1,0 +1,28 @@
+{{ define "main" }}
+  <section class="page-head">
+    <h1>{{ .Title }}</h1>
+    {{ with .Content }}
+      <div class="page-intro">{{ . }}</div>
+    {{ end }}
+  </section>
+
+  {{ $paginator := .Paginate (.RegularPages.ByDate.Reverse) }}
+  <section class="card-grid">
+    {{ range $paginator.Pages }}
+      <article class="card">
+        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        <p class="card-meta">
+          {{ with .Params.venue }}{{ . }}{{ end }}
+          {{ with .Params.year }} · {{ . }}{{ end }}
+        </p>
+        {{ with .Params.paper_title }}
+          <p><strong>Paper:</strong> {{ . }}</p>
+        {{ end }}
+        <p>{{ .Summary | plainify }}</p>
+      </article>
+    {{ else }}
+      <p>Papers가 아직 없습니다.</p>
+    {{ end }}
+  </section>
+  {{ template "_internal/pagination.html" . }}
+{{ end }}
