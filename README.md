@@ -48,12 +48,6 @@ hugo new content posts/my-post.md
 hugo new content papers/my-paper-review.md --kind papers
 ```
 
-### 기업 기술 블로그 분석 (techblogs archetype)
-
-```bash
-hugo new content techblogs/my-techblog-analysis.md --kind techblogs
-```
-
 ### 기술 분석 글 (technology)
 
 ```bash
@@ -80,8 +74,7 @@ hugo new content technology/my-technology-note.md
 .
 ├── archetypes/
 │   ├── default.md
-│   ├── papers.md
-│   └── techblogs.md
+│   └── papers.md
 ├── config/_default/
 │   ├── hugo.toml
 │   ├── params.toml
@@ -91,12 +84,11 @@ hugo new content technology/my-technology-note.md
 │   ├── posts/
 │   ├── papers/
 │   ├── technology/
-│   ├── techblogs/
 │   └── about/
 ├── scripts/
 │   ├── validate_front_matter.py
 │   └── check_internal_links.py
-└── themes/lab-light/
+└── themes/PaperMod/
 ```
 
 ## 5. baseURL / 도메인 운영 가이드
@@ -112,7 +104,7 @@ hugo new content technology/my-technology-note.md
 
 ## 6. 향후 확장 방법
 
-- `content/<section>/` 추가 + `themes/lab-light/layouts/<section>/` 템플릿 추가
+- `content/<section>/` 추가 + `layouts/<section>/` 오버라이드 템플릿 추가
 - 다국어 확장 시 `<name>.en.md` 파일로 점진 도입
 - 댓글/검색이 필요하면 외부 서비스(예: Giscus, Pagefind)만 부분적으로 연결
 - CI 검사 강화를 원하면 `markdownlint`, `lychee` 등 도입

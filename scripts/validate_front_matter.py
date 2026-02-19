@@ -28,14 +28,6 @@ PAPER_FIELDS = [
     "related_work",
 ]
 
-TECHBLOG_FIELDS = [
-    "company",
-    "original_link",
-    "topic",
-    "my_take",
-]
-
-
 def extract_front_matter(md_text: str) -> str | None:
     lines = md_text.splitlines()
     if not lines or lines[0].strip() != "+++":
@@ -57,8 +49,6 @@ def required_fields_for(section: str) -> list[str]:
     required = list(COMMON_FIELDS)
     if section == "papers":
         required.extend(PAPER_FIELDS)
-    if section == "techblogs":
-        required.extend(TECHBLOG_FIELDS)
     return required
 
 

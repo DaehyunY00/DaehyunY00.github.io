@@ -16,10 +16,9 @@ tag = "tags"
 category = "categories"
 
 [permalinks]
-posts = "/posts/:slugorfilename/"
-papers = "/papers/:slugorfilename/"
-technology = "/technology/:slugorfilename/"
-techblogs = "/techblogs/:slugorfilename/"
+posts = "/posts/:slugorcontentbasename/"
+papers = "/papers/:slugorcontentbasename/"
+technology = "/technology/:slugorcontentbasename/"
 
 [outputs]
 home = ["HTML", "RSS", "JSON"]
