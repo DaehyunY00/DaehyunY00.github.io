@@ -8,6 +8,7 @@ draft = false
 toc = true
 description = "ML 코드베이스 CI 신뢰도 개선을 위한 실무 체크리스트"
 aliases = ["/posts/reliable-ci-for-ml-repos/"]
+featured = true
 +++
 
 ## 문제 배경

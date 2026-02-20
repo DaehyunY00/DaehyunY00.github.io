@@ -1,0 +1,156 @@
+.book-kind-home .book-page {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+.book-kind-home .book-header nav ul {
+  gap: 1.1rem;
+}
+
+.book-kind-home .book-header nav a {
+  font-weight: 600;
+}
+
+.clova-home {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.clova-hero {
+  padding: 2.4rem 0 1.8rem;
+  border-bottom: 1px solid var(--gray-200);
+  margin-bottom: 1.2rem;
+}
+
+.clova-kicker {
+  margin: 0;
+  color: #1368ce;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.clova-sub {
+  max-width: 760px;
+  color: var(--body-font-color);
+  opacity: 0.9;
+}
+
+.clova-home h2 {
+  margin-top: 2rem;
+  margin-bottom: 0.9rem;
+  font-size: 1.35rem;
+}
+
+.clova-grid {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.clova-grid-featured {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.clova-grid-recent {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.clova-card {
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  background: #fff;
+  transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
+}
+
+.clova-card:hover {
+  transform: translateY(-2px);
+  border-color: #b5cce8;
+  box-shadow: 0 8px 24px rgba(18, 63, 120, 0.08);
+}
+
+.clova-card-link {
+  display: block;
+  padding: 1rem;
+  color: inherit;
+}
+
+.clova-card-link:hover {
+  text-decoration: none;
+}
+
+.clova-card-head h3,
+.clova-card-recent h3 {
+  margin: 0.35rem 0 0.5rem;
+  line-height: 1.35;
+  font-size: 1.06rem;
+}
+
+.clova-card-summary {
+  margin: 0;
+  color: var(--body-font-color);
+  opacity: 0.9;
+  line-height: 1.55;
+  font-size: 0.93rem;
+}
+
+.clova-card-date {
+  margin: 0 0 0.2rem;
+  font-size: 0.8rem;
+  color: #5b6b7f;
+}
+
+.clova-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.75rem;
+}
+
+.clova-chip {
+  border: 1px solid #d3deea;
+  border-radius: 999px;
+  padding: 0.14rem 0.5rem;
+  font-size: 0.77rem;
+  color: #3d4c5f;
+}
+
+.clova-tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.clova-tag-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border: 1px solid #d1dfef;
+  border-radius: 999px;
+  padding: 0.26rem 0.62rem;
+  color: #294968;
+  text-decoration: none;
+  background: #f8fbff;
+}
+
+.clova-tag-item:hover {
+  background: #edf4fe;
+  text-decoration: none;
+}
+
+.clova-tag-name {
+  font-size: 0.83rem;
+}
+
+.clova-tag-count {
+  font-size: 0.75rem;
+  color: #55708d;
+}
+
+.clova-more {
+  margin-top: 0.85rem;
+}
+
+.clova-more a {
+  font-weight: 600;
+}

@@ -1,0 +1,28 @@
+{{- $limit := int (or (.Get "limit") "2") -}}
+{{- $posts := (where site.RegularPages "Section" "posts").ByDate.Reverse -}}
+{{- $featured := where $posts "Params.featured" true -}}
+{{- if eq (len $featured) 0 -}}
+  {{- $featured = $posts -}}
+{{- end -}}
+{{- $featured = first $limit $featured -}}
+
+<section class="clova-grid clova-grid-featured">
+  {{- range $featured }}
+  <article class="clova-card clova-card-featured">
+    <a class="clova-card-link" href="{{ .RelPermalink }}">
+      <div class="clova-card-head">
+        <p class="clova-card-date">{{ .Date.Format "2006-01-02" }}</p>
+        <h3>{{ .Title }}</h3>
+      </div>
+      <p class="clova-card-summary">{{ .Summary | plainify | htmlUnescape }}</p>
+      {{- with .GetTerms "tags" }}
+      <div class="clova-chip-row">
+        {{- range first 4 . }}
+        <span class="clova-chip">#{{ .LinkTitle }}</span>
+        {{- end }}
+      </div>
+      {{- end }}
+    </a>
+  </article>
+  {{- end }}
+</section>

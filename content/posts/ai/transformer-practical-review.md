@@ -8,6 +8,7 @@ draft = false
 toc = true
 description = "Attention Is All You Need 논문을 실무 적용 관점에서 요약/분석한 리뷰"
 aliases = ["/posts/transformer-practical-review/", "/papers/transformer-practical-review/"]
+featured = true
 
 paper_title = "Attention Is All You Need"
 authors = ["Ashish Vaswani", "Noam Shazeer", "Niki Parmar", "Jakob Uszkoreit", "Llion Jones", "Aidan N. Gomez", "Lukasz Kaiser", "Illia Polosukhin"]

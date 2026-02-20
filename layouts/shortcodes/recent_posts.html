@@ -1,0 +1,25 @@
+{{- $limit := int (or (.Get "limit") "8") -}}
+{{- $offset := int (or (.Get "featuredOffset") "0") -}}
+{{- $allPosts := (where site.RegularPages "Section" "posts").ByDate.Reverse -}}
+{{- $posts := where $allPosts "Params.featured" "!=" true -}}
+{{- if eq (len $posts) 0 -}}
+  {{- $posts = $allPosts -}}
+{{- end -}}
+{{- if and (gt $offset 0) (gt (len $posts) $offset) -}}
+  {{- $posts = after $offset $posts -}}
+{{- end -}}
+{{- $posts = first $limit $posts -}}
+
+<section class="clova-grid clova-grid-recent">
+  {{- range $posts }}
+  <article class="clova-card clova-card-recent">
+    <a class="clova-card-link" href="{{ .RelPermalink }}">
+      <h3>{{ .Title }}</h3>
+      <p class="clova-card-summary">{{ .Summary | plainify | htmlUnescape }}</p>
+      <p class="clova-card-date">{{ .Date.Format "2006-01-02" }} · {{ .ReadingTime }} min</p>
+    </a>
+  </article>
+  {{- end }}
+</section>
+
+<p class="clova-more"><a href="/posts/">All Posts</a></p>
