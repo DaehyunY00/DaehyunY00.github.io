@@ -43,10 +43,10 @@ hugo --gc --minify
 hugo new content posts/my-post.md
 ```
 
-### 논문 리뷰 글 (posts + papers archetype)
+### 논문 리뷰 글 (posts 하위 + papers archetype)
 
 ```bash
-hugo new content posts/my-paper-review.md --kind papers
+hugo new content posts/ai/my-paper-review.md --kind papers
 ```
 
 글 성격별 탐색은 `tags` 페이지(`/tags/`)에서 합니다.
@@ -79,6 +79,8 @@ hugo new content posts/my-paper-review.md --kind papers
 │   └── menus.en.toml
 ├── content/
 │   ├── posts/
+│   │   ├── ai/
+│   │   └── engineering/
 │   └── about/
 ├── scripts/
 │   ├── validate_front_matter.py
@@ -102,6 +104,7 @@ hugo new content posts/my-paper-review.md --kind papers
 - 모든 문서를 `posts` 섹션에 작성
 - 문서 분류는 `tags` 기반으로 관리 (예: `paper-review`, `insight`, `devops`)
 - 상단 메뉴에서 `Tags`로 이동해 주제별 문서를 탐색
+- `hugo-book` 기본 규칙에 맞춰 사이드바 메뉴는 `before/after` 메뉴와 `posts` 파일 트리를 함께 사용
 
 ## 7. 향후 확장 방법
 

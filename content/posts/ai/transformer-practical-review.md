@@ -7,7 +7,7 @@ summary = "Attention 기반 구조의 핵심 아이디어와 실무 적용 시 �
 draft = false
 toc = true
 description = "Attention Is All You Need 논문을 실무 적용 관점에서 요약/분석한 리뷰"
-aliases = ["/papers/transformer-practical-review/"]
+aliases = ["/posts/transformer-practical-review/", "/papers/transformer-practical-review/"]
 
 paper_title = "Attention Is All You Need"
 authors = ["Ashish Vaswani", "Noam Shazeer", "Niki Parmar", "Jakob Uszkoreit", "Llion Jones", "Aidan N. Gomez", "Lukasz Kaiser", "Illia Polosukhin"]
