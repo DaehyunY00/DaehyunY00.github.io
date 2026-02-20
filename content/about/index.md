@@ -1,12 +1,14 @@
 +++
 title = "About"
 date = 2026-02-19T00:00:00+09:00
-tags = ["about"]
-categories = ["site"]
+tags = []
+categories = []
 summary = "블로그 목적과 작성 원칙"
 draft = false
 toc = false
-description = "DaehyunY00 기술 블로그 소개"
+description = "Daehyun Tech Blog 소개"
+weight = 4
+bookToC = false
 +++
 
 이 블로그는 다음 목적을 위해 운영합니다.

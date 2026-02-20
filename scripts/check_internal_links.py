@@ -9,6 +9,7 @@ CONTENT_ROOT = Path("content")
 STATIC_ROOT = Path("static")
 LINK_PATTERN = re.compile(r"(?<!!)\[[^\]]+\]\(([^)]+)\)")
 IGNORE_PREFIXES = ("http://", "https://", "mailto:", "tel:", "javascript:")
+ALLOWED_DYNAMIC_PREFIXES = ("/tags", "/categories")
 
 
 def strip_link_target(raw_target: str) -> str:
@@ -53,6 +54,11 @@ def main() -> int:
             if not cleaned:
                 continue
             if cleaned.startswith("#") or cleaned.startswith(IGNORE_PREFIXES):
+                continue
+            if cleaned == "/" or any(
+                cleaned == prefix or cleaned.startswith(f"{prefix}/")
+                for prefix in ALLOWED_DYNAMIC_PREFIXES
+            ):
                 continue
 
             candidates = candidate_paths(md_file, cleaned)

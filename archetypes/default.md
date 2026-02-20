@@ -1,8 +1,8 @@
 +++
 title = "{{ replace .File.ContentBaseName `-` ` ` | title }}"
 date = {{ .Date }}
-tags = []
-categories = []
+tags = ["insight"]
+categories = ["posts"]
 summary = ""
 draft = true
 toc = true

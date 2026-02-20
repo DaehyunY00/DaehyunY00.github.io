@@ -45,9 +45,27 @@ def has_key(front_matter: str, key: str) -> bool:
     return bool(re.search(rf"^\s*{re.escape(key)}\s*=", front_matter, re.MULTILINE))
 
 
-def required_fields_for(section: str) -> list[str]:
+def parse_list_field(front_matter: str, key: str) -> list[str]:
+    match = re.search(
+        rf"^\s*{re.escape(key)}\s*=\s*\[(.*?)\]",
+        front_matter,
+        re.MULTILINE | re.DOTALL,
+    )
+    if not match:
+        return []
+
+    items = []
+    for raw in match.group(1).split(","):
+        value = raw.strip().strip('"').strip("'")
+        if value:
+            items.append(value)
+    return items
+
+
+def required_fields_for(front_matter: str) -> list[str]:
     required = list(COMMON_FIELDS)
-    if section == "papers":
+    tags = {tag.lower() for tag in parse_list_field(front_matter, "tags")}
+    if "paper-review" in tags or "paper" in tags:
         required.extend(PAPER_FIELDS)
     return required
 
@@ -59,8 +77,6 @@ def main() -> int:
     errors: list[str] = []
 
     for path in files:
-        rel = path.relative_to(CONTENT_ROOT)
-        section = rel.parts[0] if rel.parts else ""
         raw = path.read_text(encoding="utf-8")
         front_matter = extract_front_matter(raw)
 
@@ -68,7 +84,7 @@ def main() -> int:
             errors.append(f"[front-matter] {path}: TOML front matter(+++ ... +++) is missing.")
             continue
 
-        required = required_fields_for(section)
+        required = required_fields_for(front_matter)
         missing = [field for field in required if not has_key(front_matter, field)]
         if missing:
             errors.append(

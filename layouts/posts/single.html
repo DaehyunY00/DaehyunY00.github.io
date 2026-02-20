@@ -1,19 +1,10 @@
 {{- define "main" }}
-<article class="post-single paper-single">
-  <header class="post-header">
-    {{- partial "breadcrumbs.html" . }}
-    <h1 class="post-title entry-hint-parent">{{ .Title }}</h1>
-    {{- if .Description }}
-    <div class="post-description">{{ .Description }}</div>
-    {{- end }}
-    {{- if not (.Param "hideMeta") }}
-    <div class="post-meta">
-      {{- partial "post_meta.html" . -}}
-      {{- partial "translation_list.html" . -}}
-    </div>
-    {{- end }}
-  </header>
+<article class="markdown book-post paper-single">
+  <h1>{{ .Title }}</h1>
+  {{- with .Description }}<p>{{ . }}</p>{{- end }}
+  <p>{{ .Date.Format "2006-01-02" }} · {{ .ReadingTime }} min</p>
 
+  {{- if or .Params.paper_title .Params.authors .Params.venue .Params.year }}
   <section class="paper-meta-grid">
     {{- with .Params.paper_title }}
     <div class="paper-meta-item"><span>Paper</span>{{ . }}</div>
@@ -28,6 +19,7 @@
     <div class="paper-meta-item"><span>Year</span>{{ . }}</div>
     {{- end }}
   </section>
+  {{- end }}
 
   {{- if or .Params.arxiv .Params.code }}
   <div class="paper-link-row">
@@ -40,25 +32,25 @@
   </div>
   {{- end }}
 
-  {{- if (.Param "ShowToc") }}
-  {{- partial "toc.html" . }}
+  {{- if .Params.toc }}
+  <aside class="book-toc-inline">
+    <h2>Table of Contents</h2>
+    {{ .TableOfContents }}
+  </aside>
   {{- end }}
 
   {{- if .Content }}
-  <div class="post-content">
-    {{- if not (.Param "disableAnchoredHeadings") }}
-    {{- partial "anchored_headings.html" .Content -}}
-    {{- else }}{{ .Content }}{{ end }}
+  <div class="book-post-content markdown-inner">
+    {{ .Content }}
   </div>
   {{- end }}
 
-  <footer class="post-footer">
-    {{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
-    <ul class="post-tags">
-      {{- range ($.GetTerms $tags) }}
-      <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
-      {{- end }}
-    </ul>
+  {{- with .GetTerms "tags" }}
+  <footer class="post-tag-row">
+    {{- range . }}
+    <a class="post-tag-chip" href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a>
+    {{- end }}
   </footer>
+  {{- end }}
 </article>
 {{- end }}

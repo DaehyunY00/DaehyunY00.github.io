@@ -1,12 +1,13 @@
 baseURL = "https://daehyuny00.github.io/"
-title = "DaehyunY00 Tech Notes"
-theme = "PaperMod"
+title = "Daehyun Tech Blog"
+theme = "hugo-book"
 defaultContentLanguage = "ko"
 defaultContentLanguageInSubdir = false
 enableRobotsTXT = true
 enableGitInfo = true
 timeZone = "Asia/Seoul"
 summaryLength = 180
+disablePathToLower = true
 
 [pagination]
 pagerSize = 10
@@ -17,11 +18,9 @@ category = "categories"
 
 [permalinks]
 posts = "/posts/:slugorcontentbasename/"
-papers = "/papers/:slugorcontentbasename/"
-technology = "/technology/:slugorcontentbasename/"
 
 [outputs]
-home = ["HTML", "RSS", "JSON"]
+home = ["HTML", "RSS"]
 section = ["HTML", "RSS"]
 taxonomy = ["HTML", "RSS"]
 term = ["HTML", "RSS"]
@@ -47,9 +46,9 @@ priority = 0.5
 languageName = "한국어"
 languageCode = "ko-KR"
 weight = 1
-title = "DaehyunY00 기술 블로그"
+title = "Daehyun Tech Blog"
 [languages.en]
 languageName = "English"
 languageCode = "en-US"
 weight = 2
-title = "DaehyunY00 Tech Blog"
+title = "Daehyun Tech Blog"

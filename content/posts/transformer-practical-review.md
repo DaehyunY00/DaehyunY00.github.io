@@ -1,12 +1,13 @@
 +++
 title = "Transformer 논문 실무 관점 리뷰"
 date = 2026-02-19T10:00:00+09:00
-tags = ["paper-review", "nlp", "transformer"]
-categories = ["papers", "ai"]
+tags = ["paper-review", "paper", "ai", "nlp", "transformer"]
+categories = ["posts"]
 summary = "Attention 기반 구조의 핵심 아이디어와 실무 적용 시 고려할 트레이드오프를 정리한다."
 draft = false
 toc = true
 description = "Attention Is All You Need 논문을 실무 적용 관점에서 요약/분석한 리뷰"
+aliases = ["/papers/transformer-practical-review/"]
 
 paper_title = "Attention Is All You Need"
 authors = ["Ashish Vaswani", "Noam Shazeer", "Niki Parmar", "Jakob Uszkoreit", "Llion Jones", "Aidan N. Gomez", "Lukasz Kaiser", "Illia Polosukhin"]

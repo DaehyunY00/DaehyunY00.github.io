@@ -1,8 +1,8 @@
 +++
 title = "ML 저장소에서 CI 신뢰도를 높이는 현실적인 방법"
 date = 2026-02-19T11:00:00+09:00
-tags = ["ci", "mlops", "engineering"]
-categories = ["posts", "devops"]
+tags = ["insight", "ci", "mlops", "engineering", "devops"]
+categories = ["posts"]
 summary = "테스트 시간이 긴 ML 코드베이스에서 CI 파이프라인을 느리게 만들지 않으면서 실패 신호를 유지하는 방법을 정리한다."
 draft = false
 toc = true

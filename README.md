@@ -1,4 +1,4 @@
-# DaehyunY00.github.io
+# Daehyun Tech Blog
 
 Hugo 기반 기술 블로그입니다.  
 GitHub Pages User Page(`https://daehyuny00.github.io/`)로 배포되도록 설계했습니다.
@@ -20,6 +20,7 @@ hugo version
 ### 개발 서버 실행
 
 ```bash
+git submodule update --init --recursive
 hugo server -D
 ```
 
@@ -36,23 +37,19 @@ hugo --gc --minify
 
 ## 2. 새 글 작성 방법
 
-### 일반 기술 글 (posts)
+### 일반 글 (posts)
 
 ```bash
 hugo new content posts/my-post.md
 ```
 
-### 논문 리뷰 (papers archetype)
+### 논문 리뷰 글 (posts + papers archetype)
 
 ```bash
-hugo new content papers/my-paper-review.md --kind papers
+hugo new content posts/my-paper-review.md --kind papers
 ```
 
-### 기술 분석 글 (technology)
-
-```bash
-hugo new content technology/my-technology-note.md
-```
+글 성격별 탐색은 `tags` 페이지(`/tags/`)에서 합니다.
 
 ## 3. 배포 구조
 
@@ -82,13 +79,11 @@ hugo new content technology/my-technology-note.md
 │   └── menus.en.toml
 ├── content/
 │   ├── posts/
-│   ├── papers/
-│   ├── technology/
 │   └── about/
 ├── scripts/
 │   ├── validate_front_matter.py
 │   └── check_internal_links.py
-└── themes/PaperMod/
+└── themes/hugo-book/
 ```
 
 ## 5. baseURL / 도메인 운영 가이드
@@ -102,7 +97,13 @@ hugo new content technology/my-technology-note.md
 
 이 순서로 적용하면 canonical/SEO 메타 충돌을 줄일 수 있습니다.
 
-## 6. 향후 확장 방법
+## 6. 운영 방식
+
+- 모든 문서를 `posts` 섹션에 작성
+- 문서 분류는 `tags` 기반으로 관리 (예: `paper-review`, `insight`, `devops`)
+- 상단 메뉴에서 `Tags`로 이동해 주제별 문서를 탐색
+
+## 7. 향후 확장 방법
 
 - `content/<section>/` 추가 + `layouts/<section>/` 오버라이드 템플릿 추가
 - 다국어 확장 시 `<name>.en.md` 파일로 점진 도입
