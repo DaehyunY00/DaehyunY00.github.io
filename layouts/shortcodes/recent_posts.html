@@ -10,16 +10,27 @@
 {{- end -}}
 {{- $posts = first $limit $posts -}}
 
-<section class="clova-grid clova-grid-recent">
+<section class="dt-grid dt-grid-recent">
   {{- range $posts }}
-  <article class="clova-card clova-card-recent">
-    <a class="clova-card-link" href="{{ .RelPermalink }}">
-      <h3>{{ .Title }}</h3>
-      <p class="clova-card-summary">{{ .Summary | plainify | htmlUnescape }}</p>
-      <p class="clova-card-date">{{ .Date.Format "2006-01-02" }} · {{ .ReadingTime }} min</p>
+  {{- $cat := "" }}
+  {{- if in .Params.tags "paper-review" }}{{- $cat = "paper" }}
+  {{- else }}{{- $cat = "engineering" }}{{- end }}
+  <article class="dt-card" data-cat="{{ $cat }}">
+    <a class="dt-card-link" href="{{ .RelPermalink }}">
+      <div class="dt-card-meta">
+        {{- if in .Params.tags "paper-review" }}
+        <span class="dt-card-badge">Paper</span>
+        {{- else }}
+        <span class="dt-card-badge eng">Engineering</span>
+        {{- end }}
+        <span class="dt-card-date">{{ .Date.Format "Jan 2, 2006" }}</span>
+      </div>
+      <h3 class="dt-card-title">{{ .Title }}</h3>
+      <p class="dt-card-summary">{{ .Summary | plainify | htmlUnescape }}</p>
+      <p class="dt-read-time" style="margin-top:0.7rem;">{{ .ReadingTime }} min read</p>
     </a>
   </article>
   {{- end }}
 </section>
 
-<p class="clova-more"><a href="/posts/">All Posts</a></p>
+<p style="margin-top:1rem;"><a class="dt-more" href="/posts/">모든 포스트 보기 →</a></p>

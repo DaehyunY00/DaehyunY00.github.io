@@ -1,11 +1,11 @@
 {{- $limit := int (or (.Get "limit") "14") -}}
-{{- $tags := .Site.Taxonomies.tags.ByCount -}}
+{{- $tags := first $limit (site.Taxonomies.tags.ByCount) -}}
 
-<section class="clova-tag-cloud">
-  {{- range first $limit $tags }}
-  <a class="clova-tag-item" href="{{ .Page.RelPermalink }}">
-    <span class="clova-tag-name">#{{ .Page.Title }}</span>
-    <span class="clova-tag-count">{{ .Count }}</span>
+<div class="dt-tagcloud">
+  {{- range $tags }}
+  <a class="dt-tag" href="{{ .Page.RelPermalink }}">
+    <span class="dt-tag-name">{{ .Page.Title }}</span>
+    <span class="dt-tag-count">{{ .Count }}</span>
   </a>
   {{- end }}
-</section>
+</div>

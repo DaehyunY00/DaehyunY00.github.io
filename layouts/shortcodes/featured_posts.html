@@ -6,19 +6,31 @@
 {{- end -}}
 {{- $featured = first $limit $featured -}}
 
-<section class="clova-grid clova-grid-featured">
+<section class="dt-grid dt-grid-featured">
   {{- range $featured }}
-  <article class="clova-card clova-card-featured">
-    <a class="clova-card-link" href="{{ .RelPermalink }}">
-      <div class="clova-card-head">
-        <p class="clova-card-date">{{ .Date.Format "2006-01-02" }}</p>
-        <h3>{{ .Title }}</h3>
+  {{- $section := .Section }}
+  {{- $cat := "" }}
+  {{- if in .Params.tags "paper-review" }}{{- $cat = "paper" }}
+  {{- else if eq .Section "posts" }}
+    {{- range .Ancestors }}{{- if .IsSection }}{{- $cat = .Title | lower | replaceRE "[^a-z]" "" }}{{- end }}{{- end }}
+  {{- end }}
+  <article class="dt-card dt-card-featured"{{- if $cat }} data-cat="{{ $cat }}"{{- end }}>
+    <a class="dt-card-link" href="{{ .RelPermalink }}">
+      <div class="dt-card-meta">
+        {{- if in .Params.tags "paper-review" }}
+        <span class="dt-card-badge">Paper</span>
+        {{- else }}
+        <span class="dt-card-badge eng">Engineering</span>
+        {{- end }}
+        <span class="dt-card-date">{{ .Date.Format "Jan 2, 2006" }}</span>
+        <span class="dt-read-time">· {{ .ReadingTime }} min read</span>
       </div>
-      <p class="clova-card-summary">{{ .Summary | plainify | htmlUnescape }}</p>
+      <h3 class="dt-card-title">{{ .Title }}</h3>
+      <p class="dt-card-summary">{{ .Summary | plainify | htmlUnescape }}</p>
       {{- with .GetTerms "tags" }}
-      <div class="clova-chip-row">
+      <div class="dt-chip-row">
         {{- range first 4 . }}
-        <span class="clova-chip">#{{ .LinkTitle }}</span>
+        <span class="dt-chip">#{{ .LinkTitle }}</span>
         {{- end }}
       </div>
       {{- end }}
