@@ -1,3 +1,35 @@
+:root {
+  --clova-accent: #1368ce;
+  --clova-card-bg: var(--body-background);
+  --clova-card-border-hover: #b5cce8;
+  --clova-card-shadow: 0 8px 24px rgba(18, 63, 120, 0.08);
+  --clova-date-color: #5b6b7f;
+  --clova-chip-border: #d3deea;
+  --clova-chip-color: #3d4c5f;
+  --clova-tag-border: #d1dfef;
+  --clova-tag-bg: #f8fbff;
+  --clova-tag-bg-hover: #edf4fe;
+  --clova-tag-color: #294968;
+  --clova-tag-count: #55708d;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --clova-accent: #84b2ff;
+    --clova-card-bg: #3f454b;
+    --clova-card-border-hover: #84b2ff;
+    --clova-card-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    --clova-date-color: #c3cbd4;
+    --clova-chip-border: #6f7983;
+    --clova-chip-color: #d8e0ea;
+    --clova-tag-border: #6f7983;
+    --clova-tag-bg: #3f454b;
+    --clova-tag-bg-hover: #4a5158;
+    --clova-tag-color: #d7e6fa;
+    --clova-tag-count: #b8c6d6;
+  }
+}
+
 .book-kind-home .book-page {
   max-width: 1160px;
   margin: 0 auto;
@@ -24,7 +56,7 @@
 
 .clova-kicker {
   margin: 0;
-  color: #1368ce;
+  color: var(--clova-accent);
   font-size: 0.85rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -59,14 +91,14 @@
 .clova-card {
   border: 1px solid var(--gray-200);
   border-radius: 12px;
-  background: #fff;
+  background: var(--clova-card-bg);
   transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
 }
 
 .clova-card:hover {
   transform: translateY(-2px);
-  border-color: #b5cce8;
-  box-shadow: 0 8px 24px rgba(18, 63, 120, 0.08);
+  border-color: var(--clova-card-border-hover);
+  box-shadow: var(--clova-card-shadow);
 }
 
 .clova-card-link {
@@ -97,7 +129,7 @@
 .clova-card-date {
   margin: 0 0 0.2rem;
   font-size: 0.8rem;
-  color: #5b6b7f;
+  color: var(--clova-date-color);
 }
 
 .clova-chip-row {
@@ -108,11 +140,11 @@
 }
 
 .clova-chip {
-  border: 1px solid #d3deea;
+  border: 1px solid var(--clova-chip-border);
   border-radius: 999px;
   padding: 0.14rem 0.5rem;
   font-size: 0.77rem;
-  color: #3d4c5f;
+  color: var(--clova-chip-color);
 }
 
 .clova-tag-cloud {
@@ -125,16 +157,16 @@
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  border: 1px solid #d1dfef;
+  border: 1px solid var(--clova-tag-border);
   border-radius: 999px;
   padding: 0.26rem 0.62rem;
-  color: #294968;
+  color: var(--clova-tag-color);
   text-decoration: none;
-  background: #f8fbff;
+  background: var(--clova-tag-bg);
 }
 
 .clova-tag-item:hover {
-  background: #edf4fe;
+  background: var(--clova-tag-bg-hover);
   text-decoration: none;
 }
 
@@ -144,7 +176,7 @@
 
 .clova-tag-count {
   font-size: 0.75rem;
-  color: #55708d;
+  color: var(--clova-tag-count);
 }
 
 .clova-more {

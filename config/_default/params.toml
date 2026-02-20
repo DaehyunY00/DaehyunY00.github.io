@@ -1,7 +1,7 @@
 author = { name = "Daehyun Yoo", email = "" }
 description = "AI 논문 리뷰, 엔지니어링 실전 인사이트, 기술 분석 기록"
 keywords = ["AI", "Engineering", "Paper Review", "Tech Insights", "DevOps"]
-BookTheme = "light"
+BookTheme = "auto"
 BookToC = true
 BookSearch = true
 BookSection = "posts"
