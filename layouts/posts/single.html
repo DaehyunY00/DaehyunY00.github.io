@@ -1,0 +1,51 @@
+{{ define "menu-container" }}
+<!-- -->
+{{ end }}
+
+{{ define "toc-container" }}
+<!-- -->
+{{ end }}
+
+{{ define "footer" }}
+<!-- -->
+{{ end }}
+
+{{ define "header" }}
+<nav>
+  {{ partial "docs/menu-hugo" (dict "Page" .Page "Menu" .Site.Menus.home) }}
+</nav>
+{{ end }}
+
+{{ define "main" }}
+<article class="markdown book-article pb-post-article">
+  <header class="pb-post-header">
+    <p class="pb-post-meta">{{ .Date.Format "2006-01-02" }} · {{ .ReadingTime }} min read</p>
+    <h1 class="pb-post-title">{{ partial "docs/title" . }}</h1>
+    {{ with .Description }}
+    <p class="pb-post-summary">{{ . }}</p>
+    {{ else }}
+      {{ with .Summary }}
+      <p class="pb-post-summary">{{ . | plainify | htmlUnescape }}</p>
+      {{ end }}
+    {{ end }}
+    {{ with .GetTerms "tags" }}
+    <div class="pb-chip-row">
+      {{ range . }}
+      <a class="pb-chip" href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a>
+      {{ end }}
+    </div>
+    {{ end }}
+  </header>
+
+  {{ if and (default true .Params.toc) (in .TableOfContents "<li") }}
+  <aside class="pb-inline-toc" aria-label="Table of contents">
+    <p class="pb-inline-toc-title">On this page</p>
+    {{ .TableOfContents }}
+  </aside>
+  {{ end }}
+
+  <div class="pb-post-content markdown-inner">
+    {{- .Content -}}
+  </div>
+</article>
+{{ end }}
